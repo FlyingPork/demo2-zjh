@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Search</title>
+</head>
+<body>
+
+<div class="content">
+    <div class="col-lg-6">
+        <a href="/homepage">
+        <img alt="logo" src="././static/parknshop_logo.jpg" class="img-rounded"/>
+        </a>
+    </div>
+
+    <br>
+    </br>
+    <!-- 搜索按钮-->
+    <div class="col-lg-6">
+        <div class="input-group">
+            <form role='form' class = "bs-example bs-example-form" th:action="@{/search/name}" method = "GET">
+                <div class="input-group">
+                    <input type="text" name="productname" class="form-control"/>
+                    <span class="input-group-btn">
+                        <button  class="btn btn-default" type="submit" name="save">search</button>
+                        </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br>
+    </br>
+
+    <div>
+        <tr th:each="adv : ${products}">
+            <!-- 点击图片跳入产品介绍页面 -->
+            <div class="col-md-2">
+                <!--
+                <div class="img">
+                    <a target="_blank" href="/product">
+                        <img src="${adv.productPhoto}" alt="fail load pics" width="160" height="160"/>
+                    </a>
+                    <div class="desc">server</div>
+                </div>
+                -->
+                <table>
+                    <thead>
+                        <th>ProductName </th>
+                        <th>Price</th>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><p th:text="${adv.productName}">ProductName</p></td>
+                        <td><p th:text="${adv.productTradePrice}">Price</p></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </tr>
+    </div>
+</div>
+</body>
+</html>
+</html>

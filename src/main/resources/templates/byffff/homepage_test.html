@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>homepage_test</title>
+</head>
+<body>
+
+<div class="col-lg-6">
+    <div class="input-group">
+        <form role='form' class = "bs-example bs-example-form" th:action="@{/search/name}" method = "GET">
+            <div class="input-group">
+                <input type="text" name="productname" class="form-control"/>
+                <span class="input-group-btn">
+                        <button  class="btn btn-default" type="submit" name="save">search</button>
+                        </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <table border="1">
+        <tr><th>Shops' Advertisement 商铺广告</th></tr>
+
+        <tr th:each="adv : ${shop_ads}">
+            <!-- 点击图片跳入产品介绍页面 -->
+            <div class="col-md-2">
+                <table>
+                    <!--<tr><th th:text="${adv}"></th> </tr>-->
+                    <thead>ShopID  </thead>
+                    <thead>Shop Information</thead>
+                    <td><th th:text= "${adv.ShopID}">ShopID</th></td>
+                    <td><th th:text="${adv.Information}">Shop Information</th></td>
+                </table>
+            </div>
+        </tr>
+    </table>
+
+    <br>
+    </br>
+
+    <table border="1">
+        <tr><th>Products' Rolling Advertisements 滚动商品广告</th></tr>
+
+        <tr th:each="adv1 : ${pro_ads_head}">
+            <!-- 点击图片跳入产品介绍页面 -->
+            <div class="col-md-2">
+                <table>
+
+                    <thead>ProductID  </thead>
+                    <thead>Price </thead>
+                    <thead>Information</thead>
+                    <td><th th:text="${adv1.ProductID}">ProductID</th></td>
+                    <td><th th:text="${adv1.Price}">Price</th></td>
+                    <td><th th:text="${adv1.Information}">Information</th></td>
+                </table>
+            </div>
+        </tr>
+    </table>
+
+    <br>
+    </br>
+
+    <table border="1">
+        <tr><th>Products' List Advertisements  商品广告</th></tr>
+
+        <tr th:each="adv2 : ${pro_ads}">
+            <!-- 点击图片跳入产品介绍页面 -->
+            <div class="col-md-2">
+                <table>
+                    <thead>ProductID  </thead>
+                    <thead>Price </thead>
+                    <thead>Information</thead>
+                    <td><th th:text="${adv2.ProductID}">ProductID</th></td>
+                    <td><th th:text="${adv2.Price}">Price</th></td>
+                    <td><th th:text="${adv2.Information}">Information</th></td>
+                </table>
+            </div>
+        </tr>
+    </table>
+
+
+</div>
+
+</body>
+</html>
+</html>
